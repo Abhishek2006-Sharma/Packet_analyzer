@@ -1,0 +1,9 @@
+﻿*.pcap
+*.exe
+traffic.csv
+traffic_backup.csv
+traffic_test.txt
+compile_error.txt
+backend/venv/
+__pycache__/
+*.pyc
