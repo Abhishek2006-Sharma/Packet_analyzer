@@ -7,3 +7,11 @@ compile_error.txt
 backend/venv/
 __pycache__/
 *.pyc
+
+# Generated packet captures
+*.pcap
+
+# Local backup files
+dashboard/app_backup.py
+live_monitor_backup.ps1
+src/main_working_backup.cpp
