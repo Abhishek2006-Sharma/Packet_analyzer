@@ -11,7 +11,7 @@
 #include "packet_parser.h"
 #include "sni_extractor.h"
 #include "types.h"
-
+#include <filesystem>
 using namespace PacketAnalyzer;
 using namespace DPI;
 
@@ -606,13 +606,16 @@ int main(int argc, char* argv[]) {
     // ============================================================
     // EXPORT FLOW DATA FOR DASHBOARD
     // ============================================================
+std::ofstream csv("traffic.csv", std::ios::out | std::ios::trunc);
 
-   std::ofstream csv("traffic.csv", std::ios::out | std::ios::trunc);
-    if (!csv.is_open()) {
+    
+if (!csv.is_open()) {
+    std::cerr << "[DPI] ERROR: Could not create traffic.csv\n";
+    std::cerr << "[DPI] Current directory: "
+              << std::filesystem::current_path().string() << "\n";
+    std::cerr << "[DPI] Check path, permissions, or file access.\n";
+}
 
-        std::cerr
-            << "[DPI] ERROR: Could not create traffic.csv\n";
-    }
     else {
 
         csv
